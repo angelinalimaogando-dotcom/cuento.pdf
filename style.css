@@ -1,0 +1,267 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Fredoka', 'Segoe UI', sans-serif;
+    /* Fondo en tonos de rosado claro y pastel */
+    background: linear-gradient(135deg, #fbe4e8 0%, #f9d5e5 50%, #f3c4fb 100%);
+    color: #4a2e35;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Encabezado */
+.header {
+    text-align: center;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(230, 100, 140, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 3px solid #f7b2bd;
+}
+
+.header h1 {
+    font-size: 2.3rem;
+    color: #d85778;
+    text-shadow: 2px 2px 0px #ffffff, 4px 4px 0px rgba(216, 87, 120, 0.1);
+}
+
+/* Barra de accesibilidad */
+.accessibility-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn {
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+    box-shadow: 0 4px 12px rgba(216, 87, 120, 0.2);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(216, 87, 120, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Botón de voz en rosa cálido */
+.btn-audio {
+    background-color: #f0718f;
+    color: white;
+}
+
+.btn-audio:hover {
+    background-color: #e05677;
+}
+
+.btn-audio.reading {
+    background-color: #d63031;
+    animation: pulse 1.5s infinite;
+}
+
+/* Botón de descarga */
+.btn-download {
+    background-color: #e888a2;
+    color: white;
+}
+
+.btn-download:hover {
+    background-color: #d46f8a;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Controles de Zoom */
+.zoom-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff0f3;
+    padding: 4px 14px;
+    border-radius: 25px;
+    border: 2px solid #f7b2bd;
+    box-shadow: 0 2px 8px rgba(216, 87, 120, 0.1);
+}
+
+.zoom-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #c94063;
+}
+
+.btn-zoom {
+    background-color: #f7aef8;
+    color: #5c1d5f;
+    padding: 6px 14px;
+    border-radius: 18px;
+    box-shadow: none;
+}
+
+.btn-zoom:hover {
+    background-color: #f38fff;
+}
+
+/* Contenedor Principal */
+.main-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    padding: 20px;
+    position: relative;
+    gap: 15px;
+}
+
+.book-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+    width: 100%;
+}
+
+.book-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flip-book {
+    display: none;
+    box-shadow: 0 15px 35px rgba(180, 80, 110, 0.25);
+    border-radius: 10px;
+}
+
+.page {
+    background-color: #ffffff;
+    border: 1px solid #f9c2cd;
+    overflow: hidden;
+}
+
+.page canvas {
+    width: 100%;
+    height: 100%;
+}
+
+/* Botones de Navegación Rosados */
+.nav-btn {
+    background-color: #f78da7;
+    color: white;
+    border: 2px solid #ffffff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(216, 87, 120, 0.3);
+    transition: transform 0.2s, background-color 0.2s;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.nav-btn:hover {
+    background-color: #e06382;
+    transform: scale(1.1);
+}
+
+.nav-btn:disabled {
+    background-color: #f3cbd3;
+    border-color: transparent;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Carga */
+.loading-box {
+    text-align: center;
+    background: #fff5f7;
+    padding: 30px 40px;
+    border-radius: 20px;
+    border: 2px solid #f7b2bd;
+    box-shadow: 0 10px 25px rgba(216, 87, 120, 0.15);
+}
+
+.loading-box p {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: #c94063;
+    font-weight: 600;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 6px solid #ffe3e8;
+    border-top: 6px solid #f0718f;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Pie de página */
+.footer {
+    padding: 15px;
+}
+
+.page-counter {
+    background: #fff0f3;
+    padding: 8px 22px;
+    border-radius: 20px;
+    font-weight: 700;
+    color: #c94063;
+    border: 2px solid #f7b2bd;
+    box-shadow: 0 4px 10px rgba(216, 87, 120, 0.1);
+}
+
+.stf__wrapper {
+    background-color: transparent !important;
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+    .header h1 { font-size: 1.7rem; }
+    .nav-btn { width: 45px; height: 45px; font-size: 1.3rem; }
+    .main-container { padding: 10px 5px; }
+}

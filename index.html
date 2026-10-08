@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuento Infantil Interactivo</title>
+    <!-- Fuente infantil legible y clara -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Librería PDF.js para procesar el PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <!-- Librería PageFlip para el efecto de pasar página -->
+    <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
+</head>
+<body>
+    <header class="header">
+        <h1>✨ ¡Hora del Cuento! 📖</h1>
+        
+        <!-- Barra de herramientas accesible -->
+        <div class="accessibility-bar">
+            <button id="btn-read-aloud" class="btn btn-audio" title="Leer página en voz alta claramente">
+                🔊 Leer en Voz Alta
+            </button>
+            <div class="zoom-controls">
+                <button id="btn-zoom-out" class="btn btn-zoom" title="Achicar el cuento">🔍 -</button>
+                <span class="zoom-label">Tamaño</span>
+                <button id="btn-zoom-in" class="btn btn-zoom" title="Agrandar el cuento">🔍 +</button>
+            </div>
+            <a id="btn-download" href="./cuento.pdf" download="cuento.pdf" class="btn btn-download" title="Descargar el cuento en PDF">
+                ⬇️ Descargar Cuento
+            </a>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <!-- Botón de navegación anterior -->
+        <button id="btn-prev" class="nav-btn prev-btn" title="Página anterior" aria-label="Página anterior">◀</button>
+
+        <div class="book-wrapper">
+            <div id="loading" class="loading-box">
+                <div class="spinner"></div>
+                <p>Abriendo el libro mágico...</p>
+            </div>
+            
+            <div class="book-container">
+                <div id="flip-book" class="flip-book"></div>
+            </div>
+        </div>
+
+        <!-- Botón de navegación siguiente -->
+        <button id="btn-next" class="nav-btn next-btn" title="Página siguiente" aria-label="Página siguiente">▶</button>
+    </main>
+
+    <footer class="footer">
+        <div id="page-counter" class="page-counter">Página 1 de --</div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
